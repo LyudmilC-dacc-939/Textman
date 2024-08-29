@@ -20,7 +20,7 @@ find_words() {
 
   if [[ $choice != "start" && $choice != "end" ]]; then
     echo "Invalid choice. Please try again."
-    exit 1
+    return
   fi
 
   echo "Please enter the string to search for:"
@@ -42,7 +42,7 @@ count_letter() {
 
   if [[ ${#letter} -ne 1 ]]; then
     echo "Please enter a single letter."
-    exit 1
+    return
   fi
 
   count=$(grep -o "$letter" "$file_path" | wc -l)
